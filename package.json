@@ -1,0 +1,33 @@
+{
+  "name": "haberry-site",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "npx serve out",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "next": "^15.5.29",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "axe-core": "^4.14.1",
+    "playwright-core": "^1.50.0",
+    "typescript": "5.7"
+  },
+  "browserslist": [
+    "chrome >= 91",
+    "edge >= 91",
+    "firefox >= 91",
+    "safari >= 14",
+    "ios_saf >= 14",
+    "and_chr >= 91",
+    "samsung >= 15"
+  ]
+}
