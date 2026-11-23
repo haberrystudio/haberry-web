@@ -3,6 +3,9 @@ import { en } from "../../../../content/en";
 import { servicePages } from "../../../../content/service-pages";
 import { buildMetadata } from "../../../../lib/metadata";
 import { site } from "../../../../site.config";
+import Breadcrumbs from "../../../../components/Breadcrumbs";
+import DirectoryLinks from "../../../../components/DirectoryLinks";
+import { locationsPath, primaryLocations } from "../../../../content/locations";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -29,7 +32,7 @@ export default async function ServicePage(props: Props) {
     "@type": "Service",
     name: service.name,
     description: service.description,
-    areaServed: { "@type": "City", name: "Kasaragod" },
+    areaServed: { "@type": "AdministrativeArea", name: "Kerala" },
     provider: site.url ? { "@id": `${site.url}/#org` } : { "@type": "Organization", name: site.name },
     ...(site.url ? { url: site.url + service.path, "@id": `${site.url}${service.path}#service` } : {}),
   };
@@ -37,11 +40,7 @@ export default async function ServicePage(props: Props) {
   return (
     <main className="sec">
       <div className="wrap service-page">
-        <nav aria-label="Breadcrumb">
-          <a className="ulink" href="/">HABERRY</a>
-          {" / "}
-          <a className="ulink" href="/#services">Services</a>
-        </nav>
+        <Breadcrumbs section={{ name: "Services", path: "/services/" }} current={service} />
         <h1>{service.heading}</h1>
         <p className="sec__intro">{service.summary}</p>
         <h2>What you get</h2>
@@ -50,11 +49,9 @@ export default async function ServicePage(props: Props) {
         <p>{service.planning}</p>
         <a className="btn btn--wa" href="/#contact">Start a project request</a>
         <h2>Explore other services</h2>
-        <ul>
-          {servicePages.filter(({ id }) => id !== service.id).map(({ path, name }) => (
-            <li key={path}><a className="ulink" href={path}>{name}</a></li>
-          ))}
-        </ul>
+        <DirectoryLinks items={servicePages.filter(({ slug }) => slug !== service.slug)} />
+        <h2>Find services by location</h2>
+        <DirectoryLinks items={[...primaryLocations, { name: "All locations", path: locationsPath }]} />
       </div>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, "\\u003c") }} />
     </main>

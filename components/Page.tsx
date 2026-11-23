@@ -12,6 +12,8 @@ import Footer from "./Footer";
 import MobileBar from "./MobileBar";
 import FloatingWa from "./FloatingWa";
 import JsonLd from "./JsonLd";
+import DirectoryLinks from "./DirectoryLinks";
+import { locationsPath, primaryLocations } from "../content/locations";
 
 export default function Page({ c }: { c: Content }) {
   return (
@@ -23,6 +25,13 @@ export default function Page({ c }: { c: Content }) {
         <Services c={c} />
         <Approach c={c} />
         <About c={c} />
+        <section className="sec sec--sand" aria-labelledby="locations-title">
+          <div className="wrap">
+            <h2 id="locations-title">Digital agency services across Kerala</h2>
+            <p className="sec__intro">From our base in Kasaragod, we take projects across Kerala and welcome remote project enquiries from Dubai.</p>
+            <DirectoryLinks items={[...primaryLocations, { name: "All locations", path: locationsPath }]} />
+          </div>
+        </section>
         <Roadmap c={c} />
         <Faq c={c} />
         <Contact c={c} />

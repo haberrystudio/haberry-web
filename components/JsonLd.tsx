@@ -1,5 +1,6 @@
 import type { Content } from "../content/types";
 import type { site as Site } from "../site.config";
+import { servicePages } from "../content/service-pages";
 
 type Props = {
   c: Content;
@@ -16,9 +17,10 @@ export default function JsonLd({ c, site, has }: Props) {
       {
         "@type": "Organization",
         "@id": (site.url || "") + "/#org",
-        name: "HABERRY",
+        name: "Haberry Studio",
+        alternateName: "HABERRY",
         description: c.meta.description,
-        areaServed: { "@type": "AdministrativeArea", name: "Kasaragod, Kerala, India" },
+        areaServed: { "@type": "AdministrativeArea", name: "Kerala, India" },
         address: { "@type": "PostalAddress", addressLocality: "Kasaragod", addressRegion: "Kerala", addressCountry: "IN" },
         knowsAbout: [
           "Digital marketing",
@@ -31,9 +33,9 @@ export default function JsonLd({ c, site, has }: Props) {
         hasOfferCatalog: {
           "@type": "OfferCatalog",
           name: "Agency services",
-          itemListElement: c.services.items.map(({ name }) => ({
+          itemListElement: servicePages.map(({ name, path }) => ({
             "@type": "Offer",
-            itemOffered: { "@type": "Service", name },
+            itemOffered: { "@type": "Service", name, ...(site.url ? { "@id": `${site.url}${path}#service` } : {}) },
           })),
         },
         ...(site.url ? { url: site.url + "/" } : {}),

@@ -57,7 +57,9 @@ Homepage copy lives in `content/en.ts`. Service page titles, descriptions and pl
 ## Deploy
 Set `NEXT_PUBLIC_SITE_URL` to the preferred HTTPS origin in the build environment, rebuild, and publish `out/` to the static host. Activate the host's HTTPS redirect for HTTP and point alternate hostnames at the preferred HTTPS origin with permanent redirects that preserve the path and query string. The static export cannot issue these HTTP redirects itself.
 
-After publishing, confirm that HTTP redirects with 301 or 308, the HTTPS pages return 200, and the live `/robots.txt`, `/sitemap.xml` and `/llms.txt` use the preferred origin. Check the homepage and a service page for canonical URLs and any host-added `X-Robots-Tag` header. Submit the sitemap in Google Search Console. The six service pages use lowercase, hyphenated URLs. Keep the homepage section links intact and point any known legacy page URLs to their closest equivalent at the host.
+After publishing, confirm that HTTP redirects with 301 or 308, the HTTPS pages return 200, and the live `/robots.txt`, `/sitemap.xml` and `/llms.txt` use the preferred origin. Check the homepage, one service and one location for canonical URLs and any host-added `X-Robots-Tag` header. Submit the sitemap in Google Search Console. The service and location pages use lowercase, hyphenated URLs. Keep the homepage section links intact and point any known legacy page URLs to their closest equivalent at the host.
+
+The service directory uses `content/service-pages.ts` and the market directory uses `content/locations.ts`. Kasaragod is the business base. Other city pages describe projects by market, and Dubai is presented as a remote enquiry market. Update the pages with approved local examples as work becomes available. In Search Console, track impressions and clicks by page and query for Kasaragod, Kozhikode, Kerala and Dubai, then check which pages produce genuine enquiries.
 
 Images in `public/media` are concept artwork from the pitch deck. The site serves responsive WebP files at 800 and 1376 pixels.
 

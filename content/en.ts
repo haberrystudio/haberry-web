@@ -10,9 +10,9 @@ export const en: Content = {
   locale: "en_IN",
   path: "/",
   meta: {
-    title: "Digital Agency in Kasaragod, Kerala | HABERRY",
+    title: "Digital & Software Agency in Kasaragod, Kerala | Haberry Studio",
     description:
-      "HABERRY is a technology and creative agency in Kasaragod, Kerala. Websites, mobile apps, custom software, digital marketing, branding and content for businesses.",
+      "Haberry Studio combines digital marketing, SEO, branding, websites, mobile apps and custom business software from its Kasaragod base in Kerala.",
   },
   a11y: {
     skip: "Skip to content",
@@ -37,7 +37,7 @@ export const en: Content = {
     eyebrow: "Technology & creative agency · Kasaragod, Kerala",
     h1: "Websites, apps and branding for businesses in",
     h1Accent: "Kasaragod.",
-    lede: "HABERRY designs and builds your website, app or software, and runs your digital marketing and content. Tell us what you need and we will get back to you.",
+    lede: "Haberry Studio brings digital marketing, branding and software development together. We build websites, apps and business tools that connect customer enquiries to the way your team works.",
     chipsLabel: "What do you need?",
     whatsapp: "Chat on WhatsApp",
     call: "Call us",
@@ -201,7 +201,7 @@ export const en: Content = {
         body: "Commercial shoots, brand films and media campaigns.",
       },
     ],
-    regionsLabel: "Where we plan to work, in this order",
+    regionsLabel: "Our base and planned expansion",
     regions: [
       { name: "Kasaragod", status: "base", note: "Where we are" },
       { name: "Kozhikode", status: "planned", note: "Planned" },
@@ -216,7 +216,7 @@ export const en: Content = {
       { q: "I do not know what I need. Where do I start?", a: "Fill in the 30-second brief below, or message us on WhatsApp. Tell us about your business and what you want to happen, and we will suggest what fits. You do not need technical words." },
       { q: "How can I contact you?", a: "Message us on WhatsApp, call, email, or fill in the 30-second brief below. Use whichever is easiest for you." },
       { q: "How much will it cost?", a: "It depends on what you need: a simple website and a custom app are very different jobs. Pick a budget range in the brief and we will tell you honestly what fits." },
-      { q: "Do you only work in Kasaragod?", a: "Kasaragod is home and where we start. If you are somewhere else, send a request anyway and we will tell you honestly whether we can help. Our plan is to grow to Kozhikode and Kochi." },
+      { q: "Do you work with businesses outside Kasaragod?", a: "Haberry Studio is based in Kasaragod. We take project enquiries across Kerala, including Kozhikode and Kochi, and remote enquiries from Dubai. Tell us where your business operates and we can confirm how we would work together." },
       { q: "Are SaaS products, EdTech and the studio available now?", a: "No. Today HABERRY is a digital agency. Everything else is our plan." },
       { q: "Can I see your past work?", a: "We will only show real projects, with the client’s permission. Until they are ready, we would rather show nothing than made-up examples." },
     ],
@@ -243,7 +243,7 @@ export const en: Content = {
         reachHint: "98765 43210 or name@email.com…",
         note: "Anything else?",
         noteHint: "Optional. A line or two.",
-        errors: { name: "Please enter your name.", reach: "Enter a phone number (10 digits) or an email address." },
+        errors: { name: "Please enter your name.", reach: "Enter an email, an Indian mobile number, or an international number with its country code." },
       },
       summary: "Your brief",
       sendWa: "Send on WhatsApp",

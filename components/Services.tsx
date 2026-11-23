@@ -16,6 +16,7 @@ export default function Services({ c }: { c: Content }) {
         <ServiceExplorer services={s} art={s.items.map(({ id }) => <ServiceArt key={id} id={id} />)} />
         <nav className="service-links" aria-label="Service pages">
           {s.items.map(({ id, name }) => <a className="ulink" key={id} href={servicePath(id)}>{name}</a>)}
+          <a className="ulink" href="/services/">View all services</a>
         </nav>
       </div>
     </section>

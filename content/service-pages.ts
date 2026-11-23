@@ -44,8 +44,43 @@ export function servicePath(id: ServiceId) {
   return `/services/${details[id].slug}/`;
 }
 
-export const servicePages = en.services.items.map((service) => ({
+const coreServices = en.services.items.map((service) => ({
   ...service,
   ...details[service.id],
   path: servicePath(service.id),
 }));
+
+const specialistServices = [
+  {
+    id: "marketing", slug: "local-seo", name: "Local SEO",
+    heading: "Local SEO Services in Kerala",
+    description: "Improve how customers find and contact your business through local search. Explore technical SEO, useful location content and search reporting with Haberry Studio.",
+    summary: "Make it easier for searchers to find the right service, business hours, contact information and branch details.",
+    gets: ["Review of indexing, canonical URLs, redirects and mobile page performance", "A page plan based on real services and locations", "Search Console reporting for service and location searches"],
+    planning: "Share your site, existing Search Console access status and the locations you genuinely serve. Bring examples of enquiries that are valuable to your business, so reporting can focus on qualified leads.",
+  },
+  {
+    id: "web", slug: "ecommerce-development", name: "E-commerce Development",
+    heading: "E-commerce Website Development in Kerala",
+    description: "Plan a mobile-first online store with product categories, checkout, fulfilment and order support for your Kerala business.",
+    summary: "Give customers a clear path from choosing a product to paying for it, with delivery information visible before checkout.",
+    gets: ["Product categories and mobile-friendly product pages", "Checkout and order flows shaped around your business", "Delivery, returns and stock information at the points buyers need them"],
+    planning: "Bring a sample catalogue with variants and prices. Clarify your delivery zones, payment methods, stock updates and what happens when an order needs to be cancelled or changed.",
+  },
+  {
+    id: "software", slug: "erp-and-workflow-software", name: "ERP and Workflow Software",
+    heading: "ERP and Workflow Software Development in Kerala",
+    description: "Plan custom tools for inventory, billing, employee workflows and reporting with Haberry Studio, based in Kasaragod.",
+    summary: "Bring separate spreadsheets and routine approvals into a workflow your team can follow and report on.",
+    gets: ["Process mapping for stock, billing or staff operations", "Screens for team roles, approvals and records", "Reports shaped around the decisions your team makes"],
+    planning: "Identify the spreadsheet or handoff causing the most repeated work. Share sample records, staff roles and any existing systems the new workflow needs to read from or update.",
+  },
+] satisfies {
+  id: ServiceId; slug: string; name: string; heading: string; description: string;
+  summary: string; gets: string[]; planning: string;
+}[];
+
+export const servicePages = [
+  ...coreServices,
+  ...specialistServices.map((service) => ({ ...service, path: `/services/${service.slug}/` })),
+];
