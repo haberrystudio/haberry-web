@@ -11,8 +11,8 @@ export default function Hero({ c }: { c: Content }) {
     <section className="hero hero2" aria-labelledby="hero-title">
       <img
         className="hero2__bg"
-        src="/media/hero-1376.jpg"
-        srcSet="/media/hero-800.jpg 800w, /media/hero-1376.jpg 1376w"
+        src="/media/hero-1376.webp"
+        srcSet="/media/hero-800.webp 800w, /media/hero-1376.webp 1376w"
         sizes="100vw"
         width={1376}
         height={768}

@@ -22,8 +22,8 @@ export default function Roadmap({ c }: { c: Content }) {
                 {m ? (
                   <img
                     className="rm__img"
-                    src={`/media/${m.k}-1376.jpg`}
-                    srcSet={`/media/${m.k}-800.jpg 800w, /media/${m.k}-1376.jpg 1376w`}
+                    src={`/media/${m.k}-1376.webp`}
+                    srcSet={`/media/${m.k}-800.webp 800w, /media/${m.k}-1376.webp 1376w`}
                     sizes="(max-width: 960px) 100vw, 50vw"
                     width={1376}
                     height={768}

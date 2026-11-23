@@ -10,7 +10,7 @@ export const en: Content = {
   locale: "en_IN",
   path: "/",
   meta: {
-    title: "HABERRY | Websites, apps and branding for businesses in Kasaragod",
+    title: "Digital Agency in Kasaragod, Kerala | HABERRY",
     description:
       "HABERRY is a technology and creative agency in Kasaragod, Kerala. Websites, mobile apps, custom software, digital marketing, branding and content for businesses.",
   },

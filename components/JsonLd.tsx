@@ -14,7 +14,7 @@ export default function JsonLd({ c, site, has }: Props) {
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "ProfessionalService",
+        "@type": "Organization",
         "@id": (site.url || "") + "/#org",
         name: "HABERRY",
         description: c.meta.description,
@@ -28,7 +28,14 @@ export default function JsonLd({ c, site, has }: Props) {
           "Branding and identity",
           "Content creation",
         ],
-        availableLanguage: ["en"],
+        hasOfferCatalog: {
+          "@type": "OfferCatalog",
+          name: "Agency services",
+          itemListElement: c.services.items.map(({ name }) => ({
+            "@type": "Offer",
+            itemOffered: { "@type": "Service", name },
+          })),
+        },
         ...(site.url ? { url: site.url + "/" } : {}),
         ...(has.email ? { email: site.contact.email } : {}),
         ...(has.phone ? { telephone: site.contact.phone } : {}),
@@ -51,5 +58,5 @@ export default function JsonLd({ c, site, has }: Props) {
       },
     ],
   };
-  return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }} />;
+  return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(data).replace(/</g, "\\u003c") }} />;
 }

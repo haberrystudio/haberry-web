@@ -5,10 +5,20 @@
  */
 const env = (v: string | undefined) => (v ?? "").trim();
 
+function siteOrigin(): string {
+  const value = env(process.env.NEXT_PUBLIC_SITE_URL);
+  if (!value) return "";
+  const url = new URL(value);
+  if (url.protocol !== "https:" || url.pathname !== "/" || url.search || url.hash || url.username || url.password) {
+    throw new Error("NEXT_PUBLIC_SITE_URL must be an HTTPS origin, such as https://example.com");
+  }
+  return url.origin;
+}
+
 export const site = {
   name: "HABERRY",
-  /** Final domain, no trailing slash. Enables canonical, hreflang, sitemap, share image. */
-  url: env(process.env.NEXT_PUBLIC_SITE_URL).replace(/\/$/, ""),
+  /** Public HTTPS origin used by indexing metadata. */
+  url: siteOrigin(),
   contact: {
     /** Digits only, with country code, e.g. "919xxxxxxxxx". */
     whatsapp: (env(process.env.NEXT_PUBLIC_WHATSAPP) || "918590186881").replace(/\D/g, ""),
