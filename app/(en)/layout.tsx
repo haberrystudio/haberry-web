@@ -1,6 +1,9 @@
 import "../globals.css";
+import Script from "next/script";
 import { archivo } from "../../lib/fonts";
 import { LITE_SCRIPT } from "../../lib/lite";
+
+const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID || "";
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -9,6 +12,17 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#0d0d0d" />
         <script dangerouslySetInnerHTML={{ __html: LITE_SCRIPT }} />
+        <Script
+          src={`https://www.googletagmanager.com/gtm.js?id=${GTM_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script id="google-tag-manager" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+          `}
+        </Script>
       </head>
       <body>{children}</body>
     </html>

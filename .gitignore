@@ -4,3 +4,4 @@ out
 shots
 .env.local
 tsconfig.tsbuildinfo
+.env
