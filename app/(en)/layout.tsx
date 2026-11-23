@@ -11,6 +11,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#0d0d0d" />
+        <meta name="google-site-verification" content="LJIcy4i4my0btCRb9Vz3_g4YIXGH-iX58L71aFhAKgM" />
         <script dangerouslySetInnerHTML={{ __html: LITE_SCRIPT }} />
         <Script
           src={`https://www.googletagmanager.com/gtm.js?id=${GTM_ID}`}
